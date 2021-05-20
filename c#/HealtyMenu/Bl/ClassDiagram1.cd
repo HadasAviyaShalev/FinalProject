@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bl.Convertion.ageDimensionConvertion">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\ageDimensionConvertion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Convertion.FoodConvetrtion">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\FoodConvetrtion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Convertion.IngredientConvertion">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\IngredientConvertion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Convertion.IngredientsInProConvertion">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\IngredientsInProConvertion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Convertion.statusConvertion">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\statusConvertion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Convertion.SuitableToConvertion">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\SuitableToConvertion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Convertion.UnitsOfMeasurementConvertion">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\UnitsOfMeasurementConvertion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Convertion.UserConvertion">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\UserConvertion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Convertion.userNutritionConvertion">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertion\userNutritionConvertion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.ageDimensionService">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAQAAACAIAAAACA=</HashCode>
+      <FileName>Service\ageDimensionService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.FoodService">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAARgAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\FoodService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.IngredientService">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAAAAAAAQAA=</HashCode>
+      <FileName>Service\IngredientService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.IngredientsInProService">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAABAAAAgAAAAAgAgAAA=</HashCode>
+      <FileName>Service\IngredientsInProService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.statusService">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAEAAAAAAAAAAAAAAEAAAAAAAAAAAAAIAABAA=</HashCode>
+      <FileName>Service\statusService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.SuitableToService">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAQAAAAAAAAAAACAIAAAA=</HashCode>
+      <FileName>Service\SuitableToService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.UnitsOfMeasurementService">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAACAAAAAAAAAAAAAgAAAAAIA=</HashCode>
+      <FileName>Service\UnitsOfMeasurementService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.userNutritionService">
+    <Position X="4" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAQAAgAAAAAACAAAAAAAAAAAAAAAAAgAAAAAI=</HashCode>
+      <FileName>Service\userNutritionService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bl.Service.UserService">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA=</HashCode>
+      <FileName>Service\UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

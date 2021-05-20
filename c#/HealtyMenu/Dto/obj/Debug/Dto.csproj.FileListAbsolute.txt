@@ -1,0 +1,6 @@
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dto\bin\Debug\Dto.dll
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dto\bin\Debug\Dto.pdb
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dto\obj\Debug\Dto.dll
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dto\obj\Debug\Dto.pdb

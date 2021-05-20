@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HealthyMenuModelStoreContainer" CdmEntityContainer="HealthyMenuEntities">
+    <EntitySetMapping Name="suitableToes">
+      <EntityTypeMapping TypeName="HealthyMenuModel.suitableTo">
+        <MappingFragment StoreEntitySet="suitableTo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="statusDescription" ColumnName="statusDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foodToMeals">
+      <EntityTypeMapping TypeName="HealthyMenuModel.foodToMeal">
+        <MappingFragment StoreEntitySet="foodToMeal">
+          <ScalarProperty Name="suitableToId" ColumnName="suitableToId" />
+          <ScalarProperty Name="foodCode" ColumnName="foodCode" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ingredients">
+      <EntityTypeMapping TypeName="HealthyMenuModel.ingredient">
+        <MappingFragment StoreEntitySet="ingredients">
+          <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+          <ScalarProperty Name="RecommendedDoseFemale" ColumnName="RecommendedDoseFemale" />
+          <ScalarProperty Name="RecommendedDoseMale" ColumnName="RecommendedDoseMale" />
+          <ScalarProperty Name="CDescription" ColumnName="CDescription" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ingredientsInProes">
+      <EntityTypeMapping TypeName="HealthyMenuModel.ingredientsInPro">
+        <MappingFragment StoreEntitySet="ingredientsInPro">
+          <ScalarProperty Name="countFor100gr" ColumnName="countFor100gr" />
+          <ScalarProperty Name="ingredientsId" ColumnName="ingredientsId" />
+          <ScalarProperty Name="foodID" ColumnName="foodID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="statuses">
+      <EntityTypeMapping TypeName="HealthyMenuModel.status">
+        <MappingFragment StoreEntitySet="statuses">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitsOfMeasurements">
+      <EntityTypeMapping TypeName="HealthyMenuModel.UnitsOfMeasurement">
+        <MappingFragment StoreEntitySet="UnitsOfMeasurement">
+          <ScalarProperty Name="ratioToGram" ColumnName="ratioToGram" />
+          <ScalarProperty Name="unitName" ColumnName="unitName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userNutritions">
+      <EntityTypeMapping TypeName="HealthyMenuModel.userNutrition">
+        <MappingFragment StoreEntitySet="userNutrition">
+          <ScalarProperty Name="yourName" ColumnName="yourName" />
+          <ScalarProperty Name="inserDate" ColumnName="inserDate" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="HealthyMenuModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="vegan" ColumnName="vegan" />
+          <ScalarProperty Name="vegetarian" ColumnName="vegetarian" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="myWeight" ColumnName="myWeight" />
+          <ScalarProperty Name="statusCode" ColumnName="statusCode" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="bornDate" ColumnName="bornDate" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menus">
+      <EntityTypeMapping TypeName="HealthyMenuModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="suitableToId" ColumnName="suitableToId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="foodCode" ColumnName="foodCode" />
+          <ScalarProperty Name="userNutritionCode" ColumnName="userNutritionCode" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="HealthyMenuModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="cosher" ColumnName="cosher" />
+          <ScalarProperty Name="suitableToID" ColumnName="suitableToID" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="foodName" ColumnName="foodName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ageDimensions">
+      <EntityTypeMapping TypeName="HealthyMenuModel.ageDimension">
+        <MappingFragment StoreEntitySet="ageDimensions">
+          <ScalarProperty Name="highMissing" ColumnName="highMissing" />
+          <ScalarProperty Name="MaxDose" ColumnName="MaxDose" />
+          <ScalarProperty Name="RecommendedDose" ColumnName="RecommendedDose" />
+          <ScalarProperty Name="UnitsOfMeasurementCode" ColumnName="UnitsOfMeasurementCode" />
+          <ScalarProperty Name="statusCode" ColumnName="statusCode" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

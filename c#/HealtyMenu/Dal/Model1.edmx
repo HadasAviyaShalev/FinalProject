@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HealthyMenuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ageDimensions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusCode" Type="int" />
+          <Property Name="UnitsOfMeasurementCode" Type="int" />
+          <Property Name="RecommendedDose" Type="float" />
+          <Property Name="MaxDose" Type="float" />
+          <Property Name="highMissing" Type="float" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foodName" Type="varchar" MaxLength="50" />
+          <Property Name="picture" Type="varchar" MaxLength="255" />
+          <Property Name="suitableToID" Type="int" />
+          <Property Name="cosher" Type="varchar" MaxLength="25" />
+          <Property Name="category" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="foodToMeal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foodCode" Type="int" />
+          <Property Name="suitableToId" Type="int" />
+        </EntityType>
+        <EntityType Name="ingredients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CDescription" Type="varchar" MaxLength="225" />
+          <Property Name="RecommendedDoseMale" Type="float" />
+          <Property Name="RecommendedDoseFemale" Type="float" />
+          <Property Name="UnitCode" Type="int" />
+        </EntityType>
+        <EntityType Name="ingredientsInPro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foodID" Type="int" />
+          <Property Name="ingredientsId" Type="int" />
+          <Property Name="countFor100gr" Type="float" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userNutritionCode" Type="int" />
+          <Property Name="foodCode" Type="int" />
+          <Property Name="amount" Type="float" />
+          <Property Name="suitableToId" Type="int" />
+        </EntityType>
+        <EntityType Name="statuses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="age" Type="varchar" MaxLength="20" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="suitableTo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="UnitsOfMeasurement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unitName" Type="varchar" MaxLength="255" />
+          <Property Name="ratioToGram" Type="float" />
+        </EntityType>
+        <EntityType Name="userNutrition">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" />
+          <Property Name="inserDate" Type="datetime" />
+          <Property Name="yourName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="255" />
+          <Property Name="lastName" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="userPassword" Type="varchar" MaxLength="10" />
+          <Property Name="bornDate" Type="date" />
+          <Property Name="phone" Type="varchar" MaxLength="10" />
+          <Property Name="statusCode" Type="int" />
+          <Property Name="myWeight" Type="float" />
+          <Property Name="height" Type="float" />
+          <Property Name="vegetarian" Type="bit" />
+          <Property Name="vegan" Type="bit" />
+        </EntityType>
+        <Association Name="FK__ageDimens__statu__2C3393D0">
+          <End Role="statuses" Type="Self.statuses" Multiplicity="0..1" />
+          <End Role="ageDimensions" Type="Self.ageDimensions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ageDimensions">
+              <PropertyRef Name="statusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Food__suitableTo__4AB81AF0">
+          <End Role="suitableTo" Type="Self.suitableTo" Multiplicity="0..1" />
+          <End Role="Food" Type="Self.Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suitableTo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="suitableToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__foodToMea__foodC__5165187F">
+          <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+          <End Role="foodToMeal" Type="Self.foodToMeal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="foodToMeal">
+              <PropertyRef Name="foodCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__foodToMea__suita__52593CB8">
+          <End Role="suitableTo" Type="Self.suitableTo" Multiplicity="0..1" />
+          <End Role="foodToMeal" Type="Self.foodToMeal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suitableTo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="foodToMeal">
+              <PropertyRef Name="suitableToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ingredien__foodI__4D94879B">
+          <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+          <End Role="ingredientsInPro" Type="Self.ingredientsInPro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ingredientsInPro">
+              <PropertyRef Name="foodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ingredien__ingre__4E88ABD4">
+          <End Role="ingredients" Type="Self.ingredients" Multiplicity="0..1" />
+          <End Role="ingredientsInPro" Type="Self.ingredientsInPro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ingredients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ingredientsInPro">
+              <PropertyRef Name="ingredientsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ingredien__UnitC__300424B4">
+          <End Role="UnitsOfMeasurement" Type="Self.UnitsOfMeasurement" Multiplicity="0..1" />
+          <End Role="ingredients" Type="Self.ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitsOfMeasurement">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ingredients">
+              <PropertyRef Name="UnitCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__menu__foodCode__5629CD9C">
+          <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+          <End Role="menu" Type="Self.menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu">
+              <PropertyRef Name="foodCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__menu__suitableTo__571DF1D5">
+          <End Role="suitableTo" Type="Self.suitableTo" Multiplicity="0..1" />
+          <End Role="menu" Type="Self.menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suitableTo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu">
+              <PropertyRef Name="suitableToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__menu__userNutrit__5535A963">
+          <End Role="userNutrition" Type="Self.userNutrition" Multiplicity="0..1" />
+          <End Role="menu" Type="Self.menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userNutrition">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu">
+              <PropertyRef Name="userNutritionCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userNutri__userI__412EB0B6">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="userNutrition" Type="Self.userNutrition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="userNutrition">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__statusCod__276EDEB3">
+          <End Role="statuses" Type="Self.statuses" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="statusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ageDimensions_ingredients">
+          <End Role="ingredients" Type="Self.ingredients" Multiplicity="0..1" />
+          <End Role="ageDimensions" Type="Self.ageDimensions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ingredients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ageDimensions">
+              <PropertyRef Name="UnitsOfMeasurementCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HealthyMenuModelStoreContainer">
+          <EntitySet Name="ageDimensions" EntityType="Self.ageDimensions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="foodToMeal" EntityType="Self.foodToMeal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ingredients" EntityType="Self.ingredients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ingredientsInPro" EntityType="Self.ingredientsInPro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="statuses" EntityType="Self.statuses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suitableTo" EntityType="Self.suitableTo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnitsOfMeasurement" EntityType="Self.UnitsOfMeasurement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userNutrition" EntityType="Self.userNutrition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ageDimens__statu__2C3393D0" Association="Self.FK__ageDimens__statu__2C3393D0">
+            <End Role="statuses" EntitySet="statuses" />
+            <End Role="ageDimensions" EntitySet="ageDimensions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Food__suitableTo__4AB81AF0" Association="Self.FK__Food__suitableTo__4AB81AF0">
+            <End Role="suitableTo" EntitySet="suitableTo" />
+            <End Role="Food" EntitySet="Food" />
+          </AssociationSet>
+          <AssociationSet Name="FK__foodToMea__foodC__5165187F" Association="Self.FK__foodToMea__foodC__5165187F">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="foodToMeal" EntitySet="foodToMeal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__foodToMea__suita__52593CB8" Association="Self.FK__foodToMea__suita__52593CB8">
+            <End Role="suitableTo" EntitySet="suitableTo" />
+            <End Role="foodToMeal" EntitySet="foodToMeal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ingredien__foodI__4D94879B" Association="Self.FK__ingredien__foodI__4D94879B">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="ingredientsInPro" EntitySet="ingredientsInPro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ingredien__ingre__4E88ABD4" Association="Self.FK__ingredien__ingre__4E88ABD4">
+            <End Role="ingredients" EntitySet="ingredients" />
+            <End Role="ingredientsInPro" EntitySet="ingredientsInPro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ingredien__UnitC__300424B4" Association="Self.FK__ingredien__UnitC__300424B4">
+            <End Role="UnitsOfMeasurement" EntitySet="UnitsOfMeasurement" />
+            <End Role="ingredients" EntitySet="ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__menu__foodCode__5629CD9C" Association="Self.FK__menu__foodCode__5629CD9C">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="menu" EntitySet="menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__menu__suitableTo__571DF1D5" Association="Self.FK__menu__suitableTo__571DF1D5">
+            <End Role="suitableTo" EntitySet="suitableTo" />
+            <End Role="menu" EntitySet="menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__menu__userNutrit__5535A963" Association="Self.FK__menu__userNutrit__5535A963">
+            <End Role="userNutrition" EntitySet="userNutrition" />
+            <End Role="menu" EntitySet="menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userNutri__userI__412EB0B6" Association="Self.FK__userNutri__userI__412EB0B6">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="userNutrition" EntitySet="userNutrition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__statusCod__276EDEB3" Association="Self.FK__Users__statusCod__276EDEB3">
+            <End Role="statuses" EntitySet="statuses" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ageDimensions_ingredients" Association="Self.FK_ageDimensions_ingredients">
+            <End Role="ingredients" EntitySet="ingredients" />
+            <End Role="ageDimensions" EntitySet="ageDimensions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HealthyMenuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="suitableTo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="foodToMeals" Relationship="HealthyMenuModel.FK__foodToMea__suita__52593CB8" FromRole="suitableTo" ToRole="foodToMeal" />
+          <NavigationProperty Name="menus" Relationship="HealthyMenuModel.FK__menu__suitableTo__571DF1D5" FromRole="suitableTo" ToRole="menu" />
+          <NavigationProperty Name="Foods" Relationship="HealthyMenuModel.FK__Food__suitableTo__4AB81AF0" FromRole="suitableTo" ToRole="Food" />
+        </EntityType>
+        <EntityContainer Name="HealthyMenuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="suitableToes" EntityType="Self.suitableTo" />
+          <EntitySet Name="foodToMeals" EntityType="HealthyMenuModel.foodToMeal" />
+          <EntitySet Name="ingredients" EntityType="HealthyMenuModel.ingredient" />
+          <EntitySet Name="ingredientsInProes" EntityType="HealthyMenuModel.ingredientsInPro" />
+          <EntitySet Name="statuses" EntityType="HealthyMenuModel.status" />
+          <EntitySet Name="UnitsOfMeasurements" EntityType="HealthyMenuModel.UnitsOfMeasurement" />
+          <EntitySet Name="userNutritions" EntityType="HealthyMenuModel.userNutrition" />
+          <EntitySet Name="Users" EntityType="HealthyMenuModel.User" />
+          <AssociationSet Name="FK__foodToMea__suita__52593CB8" Association="HealthyMenuModel.FK__foodToMea__suita__52593CB8">
+            <End Role="suitableTo" EntitySet="suitableToes" />
+            <End Role="foodToMeal" EntitySet="foodToMeals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ingredien__ingre__4E88ABD4" Association="HealthyMenuModel.FK__ingredien__ingre__4E88ABD4">
+            <End Role="ingredient" EntitySet="ingredients" />
+            <End Role="ingredientsInPro" EntitySet="ingredientsInProes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ingredien__UnitC__300424B4" Association="HealthyMenuModel.FK__ingredien__UnitC__300424B4">
+            <End Role="UnitsOfMeasurement" EntitySet="UnitsOfMeasurements" />
+            <End Role="ingredient" EntitySet="ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__statusCod__276EDEB3" Association="HealthyMenuModel.FK__Users__statusCod__276EDEB3">
+            <End Role="status" EntitySet="statuses" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userNutri__userI__412EB0B6" Association="HealthyMenuModel.FK__userNutri__userI__412EB0B6">
+            <End Role="User" EntitySet="Users" />
+            <End Role="userNutrition" EntitySet="userNutritions" />
+          </AssociationSet>
+          <EntitySet Name="menus" EntityType="HealthyMenuModel.menu" />
+          <AssociationSet Name="FK__menu__suitableTo__571DF1D5" Association="HealthyMenuModel.FK__menu__suitableTo__571DF1D5">
+            <End Role="suitableTo" EntitySet="suitableToes" />
+            <End Role="menu" EntitySet="menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__menu__userNutrit__5535A963" Association="HealthyMenuModel.FK__menu__userNutrit__5535A963">
+            <End Role="userNutrition" EntitySet="userNutritions" />
+            <End Role="menu" EntitySet="menus" />
+          </AssociationSet>
+          <EntitySet Name="Foods" EntityType="HealthyMenuModel.Food" />
+          <AssociationSet Name="FK__Food__suitableTo__4AB81AF0" Association="HealthyMenuModel.FK__Food__suitableTo__4AB81AF0">
+            <End Role="suitableTo" EntitySet="suitableToes" />
+            <End Role="Food" EntitySet="Foods" />
+          </AssociationSet>
+          <AssociationSet Name="FK__foodToMea__foodC__5165187F" Association="HealthyMenuModel.FK__foodToMea__foodC__5165187F">
+            <End Role="Food" EntitySet="Foods" />
+            <End Role="foodToMeal" EntitySet="foodToMeals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ingredien__foodI__4D94879B" Association="HealthyMenuModel.FK__ingredien__foodI__4D94879B">
+            <End Role="Food" EntitySet="Foods" />
+            <End Role="ingredientsInPro" EntitySet="ingredientsInProes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__menu__foodCode__5629CD9C" Association="HealthyMenuModel.FK__menu__foodCode__5629CD9C">
+            <End Role="Food" EntitySet="Foods" />
+            <End Role="menu" EntitySet="menus" />
+          </AssociationSet>
+          <EntitySet Name="ageDimensions" EntityType="HealthyMenuModel.ageDimension" />
+          <AssociationSet Name="FK__ageDimens__statu__2C3393D0" Association="HealthyMenuModel.FK__ageDimens__statu__2C3393D0">
+            <End Role="status" EntitySet="statuses" />
+            <End Role="ageDimension" EntitySet="ageDimensions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ageDimensions_ingredients" Association="HealthyMenuModel.FK_ageDimensions_ingredients">
+            <End Role="ingredient" EntitySet="ingredients" />
+            <End Role="ageDimension" EntitySet="ageDimensions" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="foodToMeal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foodCode" Type="Int32" />
+          <Property Name="suitableToId" Type="Int32" />
+          <NavigationProperty Name="suitableTo" Relationship="HealthyMenuModel.FK__foodToMea__suita__52593CB8" FromRole="foodToMeal" ToRole="suitableTo" />
+          <NavigationProperty Name="Food" Relationship="HealthyMenuModel.FK__foodToMea__foodC__5165187F" FromRole="foodToMeal" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="ingredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CDescription" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+          <Property Name="RecommendedDoseMale" Type="Double" />
+          <Property Name="RecommendedDoseFemale" Type="Double" />
+          <Property Name="UnitCode" Type="Int32" />
+          <NavigationProperty Name="ingredientsInProes" Relationship="HealthyMenuModel.FK__ingredien__ingre__4E88ABD4" FromRole="ingredient" ToRole="ingredientsInPro" />
+          <NavigationProperty Name="UnitsOfMeasurement" Relationship="HealthyMenuModel.FK__ingredien__UnitC__300424B4" FromRole="ingredient" ToRole="UnitsOfMeasurement" />
+          <NavigationProperty Name="ageDimensions" Relationship="HealthyMenuModel.FK_ageDimensions_ingredients" FromRole="ingredient" ToRole="ageDimension" />
+        </EntityType>
+        <EntityType Name="ingredientsInPro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foodID" Type="Int32" />
+          <Property Name="ingredientsId" Type="Int32" />
+          <Property Name="countFor100gr" Type="Double" />
+          <NavigationProperty Name="ingredient" Relationship="HealthyMenuModel.FK__ingredien__ingre__4E88ABD4" FromRole="ingredientsInPro" ToRole="ingredient" />
+          <NavigationProperty Name="Food" Relationship="HealthyMenuModel.FK__ingredien__foodI__4D94879B" FromRole="ingredientsInPro" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="age" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="HealthyMenuModel.FK__Users__statusCod__276EDEB3" FromRole="status" ToRole="User" />
+          <NavigationProperty Name="ageDimensions" Relationship="HealthyMenuModel.FK__ageDimens__statu__2C3393D0" FromRole="status" ToRole="ageDimension" />
+        </EntityType>
+        <EntityType Name="UnitsOfMeasurement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="unitName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ratioToGram" Type="Double" />
+          <NavigationProperty Name="ingredients" Relationship="HealthyMenuModel.FK__ingredien__UnitC__300424B4" FromRole="UnitsOfMeasurement" ToRole="ingredient" />
+        </EntityType>
+        <EntityType Name="userNutrition">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="inserDate" Type="DateTime" Precision="3" />
+          <Property Name="yourName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="HealthyMenuModel.FK__userNutri__userI__412EB0B6" FromRole="userNutrition" ToRole="User" />
+          <NavigationProperty Name="menus" Relationship="HealthyMenuModel.FK__menu__userNutrit__5535A963" FromRole="userNutrition" ToRole="menu" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="userPassword" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="bornDate" Type="DateTime" Precision="0" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="statusCode" Type="Int32" />
+          <Property Name="myWeight" Type="Double" />
+          <Property Name="height" Type="Double" />
+          <Property Name="vegetarian" Type="Boolean" />
+          <Property Name="vegan" Type="Boolean" />
+          <NavigationProperty Name="status" Relationship="HealthyMenuModel.FK__Users__statusCod__276EDEB3" FromRole="User" ToRole="status" />
+          <NavigationProperty Name="userNutritions" Relationship="HealthyMenuModel.FK__userNutri__userI__412EB0B6" FromRole="User" ToRole="userNutrition" />
+        </EntityType>
+        <Association Name="FK__foodToMea__suita__52593CB8">
+          <End Type="HealthyMenuModel.suitableTo" Role="suitableTo" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.foodToMeal" Role="foodToMeal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suitableTo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="foodToMeal">
+              <PropertyRef Name="suitableToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ingredien__ingre__4E88ABD4">
+          <End Type="HealthyMenuModel.ingredient" Role="ingredient" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.ingredientsInPro" Role="ingredientsInPro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ingredient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ingredientsInPro">
+              <PropertyRef Name="ingredientsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ingredien__UnitC__300424B4">
+          <End Type="HealthyMenuModel.UnitsOfMeasurement" Role="UnitsOfMeasurement" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.ingredient" Role="ingredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitsOfMeasurement">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ingredient">
+              <PropertyRef Name="UnitCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__statusCod__276EDEB3">
+          <End Type="HealthyMenuModel.status" Role="status" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="statusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userNutri__userI__412EB0B6">
+          <End Type="HealthyMenuModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.userNutrition" Role="userNutrition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="userNutrition">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userNutritionCode" Type="Int32" />
+          <Property Name="foodCode" Type="Int32" />
+          <Property Name="amount" Type="Double" />
+          <Property Name="suitableToId" Type="Int32" />
+          <NavigationProperty Name="suitableTo" Relationship="HealthyMenuModel.FK__menu__suitableTo__571DF1D5" FromRole="menu" ToRole="suitableTo" />
+          <NavigationProperty Name="userNutrition" Relationship="HealthyMenuModel.FK__menu__userNutrit__5535A963" FromRole="menu" ToRole="userNutrition" />
+          <NavigationProperty Name="Food" Relationship="HealthyMenuModel.FK__menu__foodCode__5629CD9C" FromRole="menu" ToRole="Food" />
+        </EntityType>
+        <Association Name="FK__menu__suitableTo__571DF1D5">
+          <End Type="HealthyMenuModel.suitableTo" Role="suitableTo" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.menu" Role="menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suitableTo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu">
+              <PropertyRef Name="suitableToId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__menu__userNutrit__5535A963">
+          <End Type="HealthyMenuModel.userNutrition" Role="userNutrition" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.menu" Role="menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userNutrition">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu">
+              <PropertyRef Name="userNutritionCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="picture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="suitableToID" Type="Int32" />
+          <Property Name="cosher" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="suitableTo" Relationship="HealthyMenuModel.FK__Food__suitableTo__4AB81AF0" FromRole="Food" ToRole="suitableTo" />
+          <NavigationProperty Name="foodToMeals" Relationship="HealthyMenuModel.FK__foodToMea__foodC__5165187F" FromRole="Food" ToRole="foodToMeal" />
+          <NavigationProperty Name="ingredientsInProes" Relationship="HealthyMenuModel.FK__ingredien__foodI__4D94879B" FromRole="Food" ToRole="ingredientsInPro" />
+          <NavigationProperty Name="menus" Relationship="HealthyMenuModel.FK__menu__foodCode__5629CD9C" FromRole="Food" ToRole="menu" />
+        </EntityType>
+        <Association Name="FK__Food__suitableTo__4AB81AF0">
+          <End Type="HealthyMenuModel.suitableTo" Role="suitableTo" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.Food" Role="Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suitableTo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="suitableToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__foodToMea__foodC__5165187F">
+          <End Type="HealthyMenuModel.Food" Role="Food" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.foodToMeal" Role="foodToMeal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="foodToMeal">
+              <PropertyRef Name="foodCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ingredien__foodI__4D94879B">
+          <End Type="HealthyMenuModel.Food" Role="Food" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.ingredientsInPro" Role="ingredientsInPro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ingredientsInPro">
+              <PropertyRef Name="foodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__menu__foodCode__5629CD9C">
+          <End Type="HealthyMenuModel.Food" Role="Food" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.menu" Role="menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu">
+              <PropertyRef Name="foodCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ageDimension">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusCode" Type="Int32" />
+          <Property Name="UnitsOfMeasurementCode" Type="Int32" />
+          <Property Name="RecommendedDose" Type="Double" />
+          <Property Name="MaxDose" Type="Double" />
+          <Property Name="highMissing" Type="Double" />
+          <NavigationProperty Name="status" Relationship="HealthyMenuModel.FK__ageDimens__statu__2C3393D0" FromRole="ageDimension" ToRole="status" />
+          <NavigationProperty Name="ingredient" Relationship="HealthyMenuModel.FK_ageDimensions_ingredients" FromRole="ageDimension" ToRole="ingredient" />
+        </EntityType>
+        <Association Name="FK__ageDimens__statu__2C3393D0">
+          <End Type="HealthyMenuModel.status" Role="status" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.ageDimension" Role="ageDimension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ageDimension">
+              <PropertyRef Name="statusCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ageDimensions_ingredients">
+          <End Type="HealthyMenuModel.ingredient" Role="ingredient" Multiplicity="0..1" />
+          <End Type="HealthyMenuModel.ageDimension" Role="ageDimension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ingredient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ageDimension">
+              <PropertyRef Name="UnitsOfMeasurementCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HealthyMenuModelStoreContainer" CdmEntityContainer="HealthyMenuEntities">
+          <EntitySetMapping Name="suitableToes">
+            <EntityTypeMapping TypeName="HealthyMenuModel.suitableTo">
+              <MappingFragment StoreEntitySet="suitableTo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="statusDescription" ColumnName="statusDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="foodToMeals">
+            <EntityTypeMapping TypeName="HealthyMenuModel.foodToMeal">
+              <MappingFragment StoreEntitySet="foodToMeal">
+                <ScalarProperty Name="suitableToId" ColumnName="suitableToId" />
+                <ScalarProperty Name="foodCode" ColumnName="foodCode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ingredients">
+            <EntityTypeMapping TypeName="HealthyMenuModel.ingredient">
+              <MappingFragment StoreEntitySet="ingredients">
+                <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+                <ScalarProperty Name="RecommendedDoseFemale" ColumnName="RecommendedDoseFemale" />
+                <ScalarProperty Name="RecommendedDoseMale" ColumnName="RecommendedDoseMale" />
+                <ScalarProperty Name="CDescription" ColumnName="CDescription" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ingredientsInProes">
+            <EntityTypeMapping TypeName="HealthyMenuModel.ingredientsInPro">
+              <MappingFragment StoreEntitySet="ingredientsInPro">
+                <ScalarProperty Name="countFor100gr" ColumnName="countFor100gr" />
+                <ScalarProperty Name="ingredientsId" ColumnName="ingredientsId" />
+                <ScalarProperty Name="foodID" ColumnName="foodID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="statuses">
+            <EntityTypeMapping TypeName="HealthyMenuModel.status">
+              <MappingFragment StoreEntitySet="statuses">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitsOfMeasurements">
+            <EntityTypeMapping TypeName="HealthyMenuModel.UnitsOfMeasurement">
+              <MappingFragment StoreEntitySet="UnitsOfMeasurement">
+                <ScalarProperty Name="ratioToGram" ColumnName="ratioToGram" />
+                <ScalarProperty Name="unitName" ColumnName="unitName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userNutritions">
+            <EntityTypeMapping TypeName="HealthyMenuModel.userNutrition">
+              <MappingFragment StoreEntitySet="userNutrition">
+                <ScalarProperty Name="yourName" ColumnName="yourName" />
+                <ScalarProperty Name="inserDate" ColumnName="inserDate" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HealthyMenuModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="vegan" ColumnName="vegan" />
+                <ScalarProperty Name="vegetarian" ColumnName="vegetarian" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="myWeight" ColumnName="myWeight" />
+                <ScalarProperty Name="statusCode" ColumnName="statusCode" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="bornDate" ColumnName="bornDate" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menus">
+            <EntityTypeMapping TypeName="HealthyMenuModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="suitableToId" ColumnName="suitableToId" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="foodCode" ColumnName="foodCode" />
+                <ScalarProperty Name="userNutritionCode" ColumnName="userNutritionCode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foods">
+            <EntityTypeMapping TypeName="HealthyMenuModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="cosher" ColumnName="cosher" />
+                <ScalarProperty Name="suitableToID" ColumnName="suitableToID" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="foodName" ColumnName="foodName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ageDimensions">
+            <EntityTypeMapping TypeName="HealthyMenuModel.ageDimension">
+              <MappingFragment StoreEntitySet="ageDimensions">
+                <ScalarProperty Name="highMissing" ColumnName="highMissing" />
+                <ScalarProperty Name="MaxDose" ColumnName="MaxDose" />
+                <ScalarProperty Name="RecommendedDose" ColumnName="RecommendedDose" />
+                <ScalarProperty Name="UnitsOfMeasurementCode" ColumnName="UnitsOfMeasurementCode" />
+                <ScalarProperty Name="statusCode" ColumnName="statusCode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

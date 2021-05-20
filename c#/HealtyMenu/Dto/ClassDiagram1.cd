@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dto.ageDimensionDto">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAACAAAAAACAAAAAAAAAAAAAAACAAAgA=</HashCode>
+      <FileName>ageDimensionDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.detailsDto">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACihgABAAAAAIgBIAIAAEAAAAAAAKAAAACAptAAIAA=</HashCode>
+      <FileName>detailsDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.FoodDto">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAoAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAgA=</HashCode>
+      <FileName>FoodDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.ingredientDto">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIBAAAAAAAAAAAIAAAAAAAAAAAEAAAAAAgA=</HashCode>
+      <FileName>ingredientDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.ingredientsInProDto">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAEIAAAAAAAAAAgA=</HashCode>
+      <FileName>ingredientsInProDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.menuDto">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAQAAAAAAAAAAAAAACgAAAAAAAAAAAAgA=</HashCode>
+      <FileName>menuDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.resultDto">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAACAAAAEAAAAAAAAABAAAAAAEBAgA=</HashCode>
+      <FileName>resultDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.menuList">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAABABgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>resultDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.vitamin">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAQAAAABIAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>resultDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.statusDto">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>statusDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.suitableToDto">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgA=</HashCode>
+      <FileName>suitableToDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.UnitsOfMeasurementDto">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAACAAAAAAgA=</HashCode>
+      <FileName>UnitsOfMeasurementDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.UserDto">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAQAABAAEQgCAAAAAAAAAAAAAAgIAAACCAAAgA=</HashCode>
+      <FileName>UserDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dto.userNutritionDto">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQCAAAAAAAAAAAAIAAAAAAAAAAAgE=</HashCode>
+      <FileName>userNutritionDto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

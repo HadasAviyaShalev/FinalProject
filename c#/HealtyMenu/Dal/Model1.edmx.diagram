@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="901351c07dfc4232be5358caf88f7d8c" Name="Diagram1">
+        <EntityTypeShape EntityType="HealthyMenuModel.suitableTo" Width="1.5" PointX="1.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthyMenuModel.foodToMeal" Width="1.5" PointX="8.625" PointY="7.375" />
+        <EntityTypeShape EntityType="HealthyMenuModel.ingredient" Width="1.5" PointX="9.75" PointY="1.5" />
+        <EntityTypeShape EntityType="HealthyMenuModel.ingredientsInPro" Width="1.875" PointX="8.75" PointY="10.25" />
+        <EntityTypeShape EntityType="HealthyMenuModel.status" Width="1.5" PointX="5.625" PointY="6.375" />
+        <EntityTypeShape EntityType="HealthyMenuModel.UnitsOfMeasurement" Width="1.5" PointX="3.625" PointY="4.125" />
+        <EntityTypeShape EntityType="HealthyMenuModel.userNutrition" Width="1.5" PointX="3.875" PointY="10.375" />
+        <EntityTypeShape EntityType="HealthyMenuModel.User" Width="1.5" PointX="6.75" PointY="10.625" />
+        <AssociationConnector Association="HealthyMenuModel.FK__foodToMea__suita__52593CB8" />
+        <AssociationConnector Association="HealthyMenuModel.FK__ingredien__ingre__4E88ABD4" />
+        <AssociationConnector Association="HealthyMenuModel.FK__ingredien__UnitC__300424B4" />
+        <AssociationConnector Association="HealthyMenuModel.FK__Users__statusCod__276EDEB3" />
+        <AssociationConnector Association="HealthyMenuModel.FK__userNutri__userI__412EB0B6" />
+        <EntityTypeShape EntityType="HealthyMenuModel.menu" Width="1.5" PointX="7.75" PointY="3.75" />
+        <AssociationConnector Association="HealthyMenuModel.FK__menu__suitableTo__571DF1D5" />
+        <AssociationConnector Association="HealthyMenuModel.FK__menu__userNutrit__5535A963" />
+        <EntityTypeShape EntityType="HealthyMenuModel.Food" Width="1.5" PointX="3.75" PointY="0.75" />
+        <AssociationConnector Association="HealthyMenuModel.FK__Food__suitableTo__4AB81AF0" />
+        <AssociationConnector Association="HealthyMenuModel.FK__foodToMea__foodC__5165187F" />
+        <AssociationConnector Association="HealthyMenuModel.FK__ingredien__foodI__4D94879B" />
+        <AssociationConnector Association="HealthyMenuModel.FK__menu__foodCode__5629CD9C" />
+        <EntityTypeShape EntityType="HealthyMenuModel.ageDimension" Width="2.25" PointX="11.75" PointY="4.25" />
+        <AssociationConnector Association="HealthyMenuModel.FK__ageDimens__statu__2C3393D0" />
+        <AssociationConnector Association="HealthyMenuModel.FK_ageDimensions_ingredients" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

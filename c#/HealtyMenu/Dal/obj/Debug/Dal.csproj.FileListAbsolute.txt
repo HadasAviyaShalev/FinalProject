@@ -1,0 +1,12 @@
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\bin\Debug\Dal.dll.config
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\bin\Debug\Dal.dll
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\bin\Debug\Dal.pdb
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\bin\Debug\EntityFramework.dll
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\bin\Debug\EntityFramework.xml
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\obj\Debug\Dal.csprojAssemblyReference.cache
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\obj\Debug\Dal.csproj.CopyComplete
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\obj\Debug\Dal.dll
+D:\לימודים\פרויקט גמר\c#\HealtyMenu\Dal\obj\Debug\Dal.pdb
